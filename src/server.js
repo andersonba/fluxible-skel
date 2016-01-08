@@ -11,7 +11,6 @@ import morgan from 'morgan';
 import csurf from 'csurf';
 
 import app from './app';
-import config from './config';
 import handleServerRendering from './server/handleServerRendering';
 
 const staticPath = path.resolve(__dirname, '../static');

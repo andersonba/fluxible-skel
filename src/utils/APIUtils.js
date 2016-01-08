@@ -1,9 +1,9 @@
-import request from "superagent";
-import { assign } from "lodash";
+import request from 'superagent';
+import { assign } from 'lodash';
 
-import config from "../config";
+import config from '../config';
 
-const debug = require("debug")("yourApp");
+const debug = require('debug')('yourApp');
 
 const APIUtils = {
 
@@ -15,7 +15,7 @@ const APIUtils = {
 
     const url = `${config.apiUrl}${endpoint}`;
 
-    debug("Sending GET request to %s", url, query);
+    debug('Sending GET request to %s', url, query);
 
     query = assign(query, {
       apiKey: config.apiKey
@@ -24,7 +24,7 @@ const APIUtils = {
     request.get(url)
       .query(query)
       .end((err, res) => {
-        debug("Received response %s from %s", res && res.status, url);
+        debug('Received response %s from %s', res && res.status, url);
 
         if (err) {
           if (err.status) {

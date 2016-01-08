@@ -1,36 +1,36 @@
 // Webpack config for creating the production bundle.
 
-var path = require("path");
-var webpack = require("webpack");
-var StatsWriterPlugin = require("webpack-stats-plugin").StatsWriterPlugin;
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var strip = require("strip-loader");
+var path = require('path');
+var webpack = require('webpack');
+var StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin;
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var strip = require('strip-loader');
 
-var dist = path.resolve(__dirname, "../static/dist");
+var dist = path.resolve(__dirname, '../static/dist');
 
 module.exports = {
-  devtool: "source-map",
-  entry: "./src/client.js",
+  devtool: 'source-map',
+  entry: './src/client.js',
   output: {
     path: dist,
-    filename: "[name]-[hash].js",
-    chunkFilename: "[name]-[chunkhash].js",
-    publicPath: "/dist/"
+    filename: '[name]-[hash].js',
+    chunkFilename: '[name]-[chunkhash].js',
+    publicPath: '/dist/'
   },
   module: {
     loaders: [
-      { test: /\.(jpe?g|png|gif|svg)$/, loader: "file" },
-      { test: /\.js$/, loaders: [strip.loader("debug"), "babel"], exclude: /node_modules/ },
-      { test: /\.scss$/, loader: ExtractTextPlugin.extract("style", "css!autoprefixer?browsers=last 2 version!sass") }
+      { test: /\.(jpe?g|png|gif|svg)$/, loader: 'file' },
+      { test: /\.js$/, loaders: [strip.loader('debug'), 'babel'], exclude: /node_modules/ },
+      { test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css!autoprefixer?browsers=last 2 version!sass') }
     ]
   },
   plugins: [
-    new ExtractTextPlugin("[name]-[chunkhash].css"),
+    new ExtractTextPlugin('[name]-[chunkhash].css'),
     new webpack.IgnorePlugin(/\.\/dev/, /\/config$/),
     new webpack.DefinePlugin({
-      "process.env": {
+      'process.env': {
         BROWSER: JSON.stringify(true),
-        NODE_ENV: JSON.stringify("production")
+        NODE_ENV: JSON.stringify('production')
       }
     }),
 

@@ -4,6 +4,6 @@ export default {
     path: '/',
     method: 'get',
     handler: null
-  },
+  }
 
 };

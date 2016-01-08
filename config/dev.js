@@ -2,5 +2,5 @@
 // Do not require this directly. Use ./src/config instead.
 
 export default {
-  apiUrl: "http://your-api.url"
+  apiUrl: 'http://your-api.url'
 };

@@ -21,8 +21,8 @@ if (process.env.BROWSER) {
 @handleHistory
 
 // Listen to HtmlHeadStore and pass the document title to the component
-@connectToStores(["HtmlHeadStore"], context =>
-  ({ documentTitle: context.getStore("HtmlHeadStore").getTitle() })
+@connectToStores(['HtmlHeadStore'], context =>
+  ({ documentTitle: context.getStore('HtmlHeadStore').getTitle() })
 )
 
 export default class Root extends Component {

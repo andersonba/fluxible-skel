@@ -6,7 +6,7 @@ function trackPageView(path) {
     return;
   }
 
-  window.ga("send", "pageview", path);
+  window.ga('send', 'pageview', path);
 }
 
 export default trackPageView;
